@@ -1,0 +1,7 @@
+data/
+processed/Train/
+virtualenv/__pycache__/
+virtualenv/Include/
+virtualenv/Lib/
+virtualenv/Scripts/
+virtualenv/pyenv.cfg
