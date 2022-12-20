@@ -1,0 +1,135 @@
+*{
+    margin: 0%;
+    height: auto;
+    
+}
+
+@media (max-width: 750px) {
+    #background-video { display: none; }
+    body {
+      background: url("../resources/video/Blue-22908.mp4") no-repeat;
+      background-size: cover;
+    }
+}
+
+body {
+    height:100%;
+    /* background: url("../resources/images/video-poster1.jpg") no-repeat;
+    background-size: cover; */
+}
+.back-video{
+    position:absolute;
+    size: cover;
+    right:0;
+    top:0;
+    bottom: 0;
+    z-index: -1;
+}
+@media(min-aspect-ratio:16/9){
+    .back-video{
+        width:100vw;
+        height: auto;
+    }
+}
+@media(max-aspect-ratio:16/9){
+    .back-video{
+        width:auto;
+        height: 100vh;
+    }
+}
+nav{
+    padding:0%;
+    width: 100%;
+    height:7vh;
+    background-color:white ;
+    
+    
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+    flex-flow: row wrap;
+    
+}
+nav.img{
+    align-self:flex-end;
+}
+.nav-title{
+    align-self: center;
+    margin-left: 45%;
+}
+.content{
+    width: 100%;
+    height:90vh;
+    /* background-color: aquamarine; */
+        
+}
+.card{
+    width: 100%;
+    height: 100%;
+    padding:0%;
+    /* background-color: coral; */
+}
+.banner{
+    
+    width: 30%;
+    height: 80%;
+    margin-top:6%;
+    margin-right:2px;
+    margin-left: 50%;
+    margin-bottom: 0;
+    padding-left:280px;
+    padding-right:0%;
+    padding-bottom:4%;
+    background-color:rgba(0, 0, 255, 0);
+    border-radius:14px;
+    
+}
+.banner h1{
+    padding-top:30%;
+    font-size: 4.5rem;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight:700;
+    color: aliceblue;
+}
+.banner h3{
+    font-size: 2.4rem;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight:100;
+    color: aliceblue;
+}
+.action{
+    width:75%;
+    display: flex;
+    background-color: yellow;
+    padding-right: 10px;
+}
+.button{
+    height: 50px;
+    width: 100px;
+    justify-content: center; 
+    margin: 0%;
+    margin-right: 15%;
+    padding-top: 3%;
+    border-radius: 7px;    
+    background-color: #2C56EE;
+    
+
+    text-decoration: none;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.7rem;
+    font-style: normal;
+    font-weight:200;
+    color: white;  
+}
+footer{
+    background-color:#2C56EE;
+
+}
+footer p{
+    color: white;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}

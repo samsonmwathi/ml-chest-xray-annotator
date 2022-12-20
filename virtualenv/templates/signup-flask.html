@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{{url_for('static',filename='css/signup.css')}}" rel="stylesheet">
+    <title>CXR</title>
+</head>
+<body>
+    <nav>
+        <h1 class="nav-title">cxr-dl-cp2</h1>
+        <a src="" alt="user">=</a>
+    </nav>
+    <div class="content">
+        <div class="card">
+            <div class="welcome-message">
+               <h1 class="large-text">Welcome</h1><br>
+               <h3 class ="medium-text">Welcome<br>to DLCP2</h3><br>
+               <p  class="small-text">
+                    We will reduce your Chest X-Ray worries using Deep Learning
+                </p>
+            </div>
+        </div>
+        <div class="userfield">
+            <form action="{{url_for('signup')}}", method='POST'>
+                    <h1 class="large-text">Signup</h1>
+                    <fieldset class="input">
+                        {{ form.first_name(size=20,placeholder="firstname") }}
+                        {% if form.first_name.errors %}
+                            <span>
+                                <ul class="errors">
+                                    {% for error in form.first_name.errors %}
+                                        <li>{{ error }}</li>
+                                    {% endfor %}
+                                    </ul>
+                            </span>
+                        {% endif %}
+                    </fieldset>
+                    <fieldset class="input">
+                        {{ form.last_name(placeholder="lastname") }}
+                        {% if form.last_name.errors %}
+                            <ul class="errors">
+                            {% for error in form.last_name.errors %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+                            </ul>
+                        {% endif %}
+                    </fieldset>
+
+                    <fieldset class="input">
+                        {{ form.email(placeholder='email') }}
+                        {% if form.email.errors %}
+                            <ul class="errors">
+                            {% for error in form.email.errors %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+                            </ul>
+                        {% endif %}
+                    </fieldset>
+          
+                    <fieldset class="input">
+                        {{ form.password(placeholder='password') }}
+                        {% if form.password.errors %}
+                            <ul class="errors">
+                            {% for error in form.password.errors %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+                            </ul>
+                        {% endif %}
+                    </fieldset>
+                    <fieldset class="input">
+                        {{ form.confirm_password(placeholder='confirm password') }}
+                        {% if form.confirm_password.errors %}
+                            <ul class="errors">
+                            {% for error in form.confirm_password.errors %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+                            </ul>
+                        {% endif %}
+                    </fieldset>
+                    <!-- <fieldset class="input">
+                        {{ form.recaptcha(placeholder='confirm password') }}
+                        {% if form.recaptcha.errors %}
+                            <ul class="errors">
+                            {% for error in form.recaptcha.errors %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+                            </ul>
+                        {% endif %}
+                    </fieldset> -->
+                    <p>
+                       <span>Already have an account? <a href="{{url_for('login')}}">login</a></span>
+                    </p><br>
+                        
+                    {{ form.submit }}
+                    
+            </form>
+        </div> 
+    </div> 
+    <footer>
+        <p>
+            CXR is a non-profit project dedicated to making radiologists work easier
+        </p>
+    </footer>   
+</body>
+</html>

@@ -1,0 +1,140 @@
+*{
+    margin: 0%;
+    height: auto;
+    display: flexbox;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+nav{
+    width: 100%;
+    height:7vh;
+    background-color:#2C56EE ;    
+    text-align: center;
+    padding:0%;
+    display: flex;
+    align-items:center;
+    justify-content:space-between;    
+}
+nav.img{
+    align-self:flex-end;
+}
+.nav-title{
+    align-self: center;
+    margin-left: 45%;
+}
+.content{
+    height: 100vh;
+    background-color: cornflowerblue;
+    display:flex;
+    flex-direction: row;}
+
+.card{
+    height:100%;
+    width:35%;
+    margin-left:0;
+    margin-right:auto;
+    padding-left: 90px;
+    padding-right: 9px;
+    padding-bottom:0px;
+    background-color: aquamarine;
+}
+
+.welcome-message{
+    margin-left:0;
+    margin-right:auto;
+    padding-top: 90px;
+}
+.large-text{
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 5rem;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight:900;
+    color: black; 
+}
+.medium-text{
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 3rem;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight:600;
+    color: black; 
+}
+.small-text{
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 2rem;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight:300;
+    color: black; 
+}
+
+.userfield{
+    width: 40%;
+    height: 100vh;
+    margin-left:auto;
+    margin-right:0;
+    padding-bottom: 0%;
+    background-color: bisque;
+}
+form{
+    margin-top: 90px;
+    background-color: blueviolet;
+    height:40%;
+    width: 60%;
+    padding: 3rem 5rem;
+    padding-left: 20px;
+}
+
+input{
+    border:none;
+    background-color: white;
+    border-radius: 5px;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    padding:.5rem .5rem;
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.7rem;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: normal;
+}
+button{
+    appearance: button;
+    height: 50px;
+    width: 120px; 
+    border-radius: 7px;    
+   
+    background-color: #2C56EE;
+    border: none;    
+
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    font-family: -apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Ubuntu,sans-serif;
+    font-size: 1.7rem;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight:200;
+    color: white;  
+}
+
+a{
+    color: #2C56EE;
+    text-decoration: none;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 1.2rem;
+    font-style: normal;
+    font-weight:5px;
+}
+footer{
+    background-color:#2C56EE;
+
+}
+footer p{
+    color: white;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{{url_for('static',filename='css/signup.css')}}" rel="stylesheet">
     <title>CXR</title>
 </head>
 <body>
@@ -11,27 +12,36 @@
         <h1 class="nav-title">cxr-dl-cp2</h1>
         <a src="" alt="user">=</a>
     </nav>
-    <div class="card">
-        <div class="welcome-message">
-           <h1 class="large-text">Welcome</h1>
-           <h3 class ="medium-text">to DLCP2</h3>
-           <p  class="small-text">
-                where we meet your radiological needs
-                with Deep Learning
-            </p>
-        </div>
-    </div>
     <div class="content">
-        <form action="post">
-            <h1 class="large-text">Signup</h1>
-            <input id="firstname" placeholder="firstname">
-            <input id="lastname" placeholder="lastname">
-            <input id ="email" placeholder="email" type="email">
-            <input id ="password" placeholder="password" type="password">
-            <input id ="confirm password" placeholder="confirm password" type="password">
-            <button type="submit">submit</button>
-        </form>
-    </div>
-    
+        <div class="card">
+            <div class="welcome-message">
+               <h1 class="large-text">Welcome</h1><br>
+               <h3 class ="medium-text">Welcome<br>to DLCP2</h3><br>
+               <p  class="small-text">
+                    We will reduce your Chest X-Ray worries using Deep Learning
+                </p>
+            </div>
+        </div>
+        <div class="userfield">
+            <form action="post">
+                <h1 class="large-text">Signup</h1>
+                <input id="firstname" placeholder="firstname">
+                <input id="lastname" placeholder="lastname">
+                <input id ="email" placeholder="email" type="email">
+                <input id ="password" placeholder="password" type="password">
+                <input id ="confirm password" placeholder="confirm password" type="password">
+                <button type="submit">submit</button><br><br>
+                <p>
+                    Already have an account?
+                </p><br>
+                <a href="{{url_for('login')}}">login</a>
+            </form>
+        </div> 
+    </div> 
+    <footer>
+        <p>
+            CXR is a non-profit project dedicated to making radiologists work easier
+        </p>
+    </footer>   
 </body>
 </html>
