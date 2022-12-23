@@ -23,7 +23,8 @@ config = {
 
 firebase = pyrebase.initialize_app(config)
 auth = firebase.auth()
-
+db = firebase.database()
+person = {"is_logged_in": False, "name": "", "email": "", "uid": ""}
 
 
 app = Flask(__name__)
@@ -59,49 +60,72 @@ def signup():
     form = SignupForm()
     if request.method=='POST':
         form.validate_on_submit()
-        name = request.form.get('first_name')#+request.form.get('last_name')
-        email = request.form.get('email')
-        password = request.form.get('password')
+        result = request.form           #Get the data submitted
+        first_name = result.get('first_name')
+        last_name =result.get('last_name')
+        email = result.get('email')
+        password = result.get('password')
+        
         try:
-            user = auth.create_user_with_email_and_password(email,password)
-            session['user']=user
-            session['name']=name
+            auth.create_user_with_email_and_password(email,password)
+            user = auth.sign_in_with_email_and_password(email, password)
+
+            global person
+            person["is_logged_in"] = True
+            person["email"] = user["email"]
+            person["uid"] = user["localId"]
+            person["name"] = first_name
+
+            data = {"name": first_name, "email": email}
+            db.child("users").child(person["uid"]).set(data)
+
             return redirect(url_for('upload_image'))
         except:
-            return "invalid signup, please try again"
-        
+            return redirect(url_for('signup'))
         
     elif request.method=="GET":
-        return render_template('signup-flask.html',form = form)
+        if person["is_logged_in"] == True:
+            return redirect(url_for('upload_image'))
+        else:
+            return render_template('signup-flask.html',form=form)
 
 
 @app.route('/login',methods=['GET','POST'])
 def login():
     form = LoginForm()
     if request.method =='POST':
-        form.validate_on_submit()
-        email = request.form.get('email')
-        password = request.form.get('password')
+        result = request.form   
+        email = result["email"]
+        password = result["pass"]
         try:
             user = auth.sign_in_with_email_and_password(email,password)
-            # global person
-            # person['user']=user
-            # person['name']=email
-            # name = person.get('name')
-            # print
-            redirect(url_for('upload_image',user =''))#, user = name.get('name'))
+            global person
+            person["is_logged_in"] = True
+            person["email"] = user["email"]
+            person["uid"] = user["localId"]
+            #Get the name of the user
+            data = db.child("users").get()
+            person["name"] = data.val()[person["uid"]]["name"]
+            #Redirect to welcome page
+            redirect(url_for('upload_image'))#, user = name.get('name'))
         except:
-            return "invalid user or password try again"
+            return render_template('login-flask.html', form = form)
+
     if request.method=='GET':
-        if 'user' in session:
+        if person["is_logged_in"] == True:
             return redirect(url_for('upload_image'))
             # return "Hi {}".format(session['user'])
         else:
-            return render_template('login-flask.html')
+            return render_template('login-flask.html', form = form)
 
 
 @app.route('/logout')
 def logout ():
+    global person
+    person["is_logged_in"] = False
+    person["email"] = None
+    person["uid"] = None
+    person["name"] = None
     session.pop('user',None)
     session.pop('name',None)
     return redirect(url_for('login'))
@@ -113,6 +137,7 @@ def upload_image():
     else:
         user =''
     form = UploadForm()
+    
     if form.validate_on_submit():
         filename = photos.save(form.photo.data)
         file_url = url_for('get_file',filename = filename)

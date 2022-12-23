@@ -9,7 +9,7 @@
 </head>
 <body>
     <nav>
-        <h1 class="nav-title">cxr-dl-cp2</h1>
+        <h1 class="nav-title"><a href="{{url_for('welcome')}}">cxr-dl-cp2</a></h1>
         <img src="" alt="user">
     </nav>
     <div class="content">
@@ -24,9 +24,9 @@
             </div>
         </div>
         <div class="userfield">
-            <form action="{{url_for('login')}}",method="POST">
+            <form action="{{url_for('login')}}",method='POST'>
                 <h1 class="large-text">Login</h1>
-                <fieldset class="input">
+                <fieldset >
                     {{form.email(placeholder='email') }}
                     {% if form.email.errors %}
                         <ul class="errors">
@@ -36,7 +36,7 @@
                         </ul>
                     {% endif %}
                 </fieldset>
-                <fieldset class="input">
+                <fieldset>
                     {{ form.password(placeholder='password') }}
                     {% if form.password.errors %}
                         <ul class="errors">
@@ -59,7 +59,6 @@
                 <p>
                    <span>Don't have an account yet? <a class ="button" href="{{url_for('signup')}}">signup</a></span> 
                 </p>
-                
                 {{ form.submit }}
             </form>
         </div>

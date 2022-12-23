@@ -7,17 +7,18 @@
         <form  method="post" enctype="multipart/form-data">
             {{ form.hidden_tag()}}
             {% for errors in form.photo.errors %}
-                <span style="color:red;">{{ error }}</span>
+                <span class = "errors" style="color:red;">{{ error }}</span>
             {% endfor%}
             <!-- .row.justify-content-center>.col*2 -->
             <div class="row justify-content-center">
-                <div class="col-auto">
+                <div class="input"><br>
                     {{form.photo(class="form-control")}}
-                </div>
-                <div class="col">
-                    {{form.submit(class='btn btn-success')}}
+                </div><br>
+                <div >
+                    {{form.submit(class="accept_button")}}
                 </div>
             </div>
+            <br>
 
         </form>
         {% if file_url %}

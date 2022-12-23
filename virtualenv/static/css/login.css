@@ -24,9 +24,13 @@ nav.img{
 }
 .content{
     height: 100vh;
-    background-color: cornflowerblue;
     display:flex;
-    flex-direction: row;}
+    flex-direction: row;
+    background:url('../resources/images/blue_grad.jpg');
+    background-size: cover;
+    background-position: center;
+
+}
 
 .card{
     height:100%;
@@ -36,7 +40,9 @@ nav.img{
     padding-left: 90px;
     padding-right: 9px;
     padding-bottom:0px;
-    background-color: aquamarine;
+    background:url('../resources/images/purp_grad.jpg');
+    background-size: cover;
+    background-position: bottom;
 }
 
 .welcome-message{
@@ -51,7 +57,7 @@ nav.img{
     font-family: Arial, Helvetica, sans-serif;
     font-style: normal;
     font-weight:900;
-    color: black; 
+    color: white; 
 }
 .medium-text{
     text-decoration: none;
@@ -60,7 +66,7 @@ nav.img{
     font-family: Arial, Helvetica, sans-serif;
     font-style: normal;
     font-weight:600;
-    color: black; 
+    color: wheat; 
 }
 .small-text{
     text-decoration: none;
@@ -69,7 +75,7 @@ nav.img{
     font-family: Arial, Helvetica, sans-serif;
     font-style: normal;
     font-weight:300;
-    color: black; 
+    color: wheat; 
 }
 
 .userfield{
@@ -78,11 +84,10 @@ nav.img{
     margin-left:auto;
     margin-right:0;
     padding-bottom: 0%;
-    background-color: bisque;
 }
+
 form{
     margin-top: 90px;
-    background-color: blueviolet;
     height:40%;
     width: 60%;
     padding: 3rem 5rem;
